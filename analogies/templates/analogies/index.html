@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div id="analogy-wrap">
+<h1>{{ item }}</h1>
+
+{% for analogy in analogies %}
+    <a href="{% url analogies.detail analogy.slug analogy.pk %}">{{ analogy }}</a><br />
+{% endfor %}
+{% endblock body %}

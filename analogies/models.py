@@ -17,10 +17,10 @@ class Item(models.Model):
     class Meta:
         verbose_name = "Item"
         verbose_name_plural = "Items"
-        
+
     def __unicode__(self):
         return self.name
-    
+
     def save(self):
         self.slug = slugify(self)
         super(Item, self).save()
@@ -38,14 +38,14 @@ class Analogy(models.Model):
     class Meta:
         verbose_name = _('Analogy')
         verbose_name_plural = _('Analogies')
-    
+
     def __unicode__(self):
         return "%s %s like %s" % (self.first, self.verb, self.second)
-    
+
     @models.permalink
     def get_absolute_url(self):
         return ('analogies.detail', [self.slug])
-        
+
     def save(self):
         self.slug = "%s-%s-like-%s" % (self.first.slug, self.verb, self.second.slug)
         super(Analogy, self).save()
