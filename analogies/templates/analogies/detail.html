@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div id="analogy-wrap">
+    <h1><a href="{% url analogies.item analogy.first.slug %}">{{ analogy.first }}</a> {{ analogy.verb }} like <a href="{% url analogies.item analogy.second.slug %}">{{ analogy.second }}</a></h1>
+    <div id="content">{{ analogy.content|safe }}</div>
+</div>
+{% endblock body %}

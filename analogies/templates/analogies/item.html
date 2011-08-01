@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div id="analogy-wrap">
+<h1>{{ item }}</h1>
+
+{% for analogy in analogies %}
+    <a href="{% url analogies.detail analogy.slug analogy.pk %}">{{ analogy.verb }} like {% ifequal analogy.first item %}
+    {{ analogy.second }}
+    {% else %}
+    {{ analogy.first }}
+    {% endifequal %}</a><br />
+{% endfor %}
+{% endblock body %}
